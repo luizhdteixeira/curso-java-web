@@ -26,7 +26,7 @@
         <property name="show_sql">true</property>
 
         <!-- Create tables Database -->
-        <property name="hibernate.hbm2ddl.auto">validate</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
 
 
     </session-factory>
