@@ -23,7 +23,7 @@ public class HibernateCfgConfig {
             
         } catch (Throwable ex) {
             
-            System,err,println("The session factory was not created, check." + ex);
+            System.err.println("The session factory was not created, check." + ex);
             
             throw new ExceptionInInitializerError(ex);
         }
