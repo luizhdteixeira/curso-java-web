@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://www.hibernate.org/xsd/hibernate-configuration">
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
         <!-- Configuration Connection Database -->
@@ -14,7 +14,7 @@
         <property name="connection.pool_size">1</property>
 
         <!-- SQL Dialect -->
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQL57InnoDBDialect</property>
 
         <!-- Manager Sessions -->
         <property name="current_session_context_class">thread</property>
@@ -26,8 +26,14 @@
         <property name="show_sql">true</property>
 
         <!-- Create tables Database -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">validate</property>
 
+        <!-- Mapping Entities -->
+        <mapping class="com.seller.domain.Provider"/>
+        <mapping class="com.seller.domain.Employee"/>
+        <mapping class="com.seller.domain.Item"/>
+        <mapping class="com.seller.domain.Product"/>
+        <mapping class="com.seller.domain.Seller"/>
 
     </session-factory>
 </hibernate-configuration>
