@@ -2,9 +2,10 @@ package com.seller.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import java.io.Serializable;
 
 @Entity
-public class Provider extends GenericDomain{
+public class Provider extends GenericDomain implements Serializable {
 
     @Column(length = 50, nullable = false)
     private String name;

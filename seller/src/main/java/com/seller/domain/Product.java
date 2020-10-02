@@ -4,10 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
-public class Product extends GenericDomain{
+public class Product extends GenericDomain implements Serializable {
 
     @Column(length = 50, nullable = false)
     private String name;

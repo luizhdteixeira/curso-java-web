@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: luizt
+  Date: 01/10/2020
+  Time: 20:19
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xml:lang="xhtml">
+<head>
+    <title>Employee Search</title>
+</head>
+<body>
+<ui:composition template="/templates/template.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <p:toolbar>
+                <f:facet name="left">
+                    <h:outputText value="Employee"/>
+                </f:facet>
+            </p:toolbar>
+            <h:panelGrid columns="6">
+                <p:outputLabel value="Name: "/>
+                <p:inputText maxlength="50" size="30"/>
+                <p:outputLabel value="Document: "/>
+                <p:inputMask mask="999.999.999-99" maxlength="20" size="11"/>
+                <p:button value="Search"/>
+                <p:button value="New" outcome="/pages/insertEmployee.xhtml"/>
+            </h:panelGrid>
+            <p:dataTable emptyMessage="Nothing Results">
+                <p:column headerText="Code">
+
+                </p:column>
+                <p:column headerText="Name">
+
+                </p:column>
+                <p:column headerText="Function">
+
+                </p:column>
+                <p:column headerText="Options">
+
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+</body>
+
+
+</html>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: luizt
+  Date: 24/09/2020
+  Time: 20:36
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xml:lang="xhtml">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>System Seller</title>
+</h:head>
+<h:body>
+    <p:layout>
+        <p:layoutUnit position="north" header="Seller"
+                      resizable="false" closable="false" collapsible="false"/>
+        <p:layoutUnit position="center" closable="false" collapsible="false">
+            <ui:insert name="content"/>
+        </p:layoutUnit>
+        <p:layoutUnit position="west" size="250" resizable="false"
+                      closable="false" collapsible="false">
+            <h:form>
+                <p:panelMenu>
+                    <p:submenu label="Archive">
+                        <p:menuitem value="Principal" outcome="/pages/index.xhtml"/>
+                        <p:menuitem value="Exit"/>
+                    </p:submenu>
+                    <p:submenu label="Registration">
+                        <p:menuitem value="Provider" outcome="/pages/insertProvider.xhtml"/>
+                        <p:menuitem value="Employee" outcome="/pages/insertEmployee.xhtml"/>
+                        <p:menuitem value="Product" outcome="/pages/insertProduct.xhtml"/>
+                    </p:submenu>
+                    <p:submenu label="Sellers">
+                        <p:menuitem value="New Seller"/>
+                    </p:submenu>
+                    <p:submenu label="Ajuda">
+                        <p:menuitem value="Ajuda"/>
+                    </p:submenu>
+                </p:panelMenu>
+            </h:form>
+        </p:layoutUnit>
+        <p:layoutUnit position="south" header="Development by Luiz Teixeira"
+                      resizable="false" closable="false" collapsible="false"/>
+    </p:layout>
+
+</h:body>
+
+</html>
