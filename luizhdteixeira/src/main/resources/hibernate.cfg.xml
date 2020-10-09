@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Configuration Connection Database -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://127.0.0.1:3306/doctors</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">fatec2020</property>
+
+        <!-- Pool Connection -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL Dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL57InnoDBDialect</property>
+
+        <!-- Manager Sessions -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Second Cache Level -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
+
+        <!-- View SQL Commands -->
+        <property name="show_sql">true</property>
+
+        <!-- Create tables Database -->
+        <property name="hibernate.hbm2ddl.auto">validate</property>
+
+        <!-- Mapping Entities -->
+        <mapping class="com.luizhdteixeira.domain.Doctor"/>
+        <mapping class="com.luizhdteixeira.domain.Patient"/>
+        <mapping class="com.luizhdteixeira.domain.MedicalAppointment"/>
+
+    </session-factory>
+</hibernate-configuration>
