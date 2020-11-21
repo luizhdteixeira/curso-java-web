@@ -20,19 +20,19 @@
 <body>
 <ui:composition template="/templates/template.xhtml">
     <ui:define name="content">
-        <h:form>
+        <h:form id="frmInsPro">
             <p:toolbar>
                 <f:facet name="left">
                     <h:outputText value="Provider"/>
                 </f:facet>
             </p:toolbar>
-            <h:panelGrid columns="2">
+            <h:panelGrid columns="2" id="pnInsPro">
                 <p:outputLabel value="Name: "/>
-                <p:inputText maxlength="50" size="30"/>
+                <p:inputText maxlength="50" size="30" value="#{providerBean.provider.name}"/>
             </h:panelGrid>
             <h:panelGrid columns="5">
                 <p:commandButton value="New"/>
-                <p:commandButton value="Save"/>
+                <p:commandButton value="Save" actionListener="#{providerBean.save()}" update=":msgGlobal :frmInsPro:pnInsPro"/>
                 <p:commandButton value="Update"/>
                 <p:commandButton value="Delete"/>
                 <p:button value="Back" outcome="/pages/searchProvider.xhtml"/>

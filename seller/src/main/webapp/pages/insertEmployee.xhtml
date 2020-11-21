@@ -20,21 +20,21 @@
 <body>
 <ui:composition template="/templates/template.xhtml">
     <ui:define name="content">
-        <h:form>
+        <h:form id="frmInsEmp">
             <p:toolbar>
                 <f:facet name="left">
                     <h:outputText value="Employee"/>
                 </f:facet>
             </p:toolbar>
-            <h:panelGrid columns="2">
+            <h:panelGrid columns="2" id="pnInsEmp">
                 <p:outputLabel value="Name: "/>
-                <p:inputText maxlength="50" size="30"/>
+                <p:inputText maxlength="50" size="30" value="#{employeeBean.employee.name}"/>
                 <p:outputLabel value="Document: "/>
-                <p:inputMask mask="999.999.999-99" maxlength="20" size="30"/>
+                <p:inputMask mask="999.999.999-99" maxlength="20" size="30" value="#{employeeBean.employee.documentNumber}"/>
                 <p:outputLabel value="Password: "/>
-                <p:password maxlength="8" size="30"/>
+                <p:password maxlength="8" size="30" value="#{employeeBean.employee.password}"/>
                 <p:outputLabel value="Function: "/>
-                <p:selectOneMenu>
+                <p:selectOneMenu value="#{employeeBean.employee.function}">
                     <f:selectItem itemValue="" itemLabel="Select a function"/>
                     <f:selectItem itemValue="Assistent" itemLabel="Assistent"/>
                     <f:selectItem itemValue="Manager" itemLabel="Manager"/>
@@ -43,7 +43,7 @@
             </h:panelGrid>
             <h:panelGrid columns="5">
                 <p:commandButton value="New"/>
-                <p:commandButton value="Save"/>
+                <p:commandButton value="Save" actionListener="#{employeeBean.save()}" update=":msgGlobal :frmInsEmp:pnInsEmp"/>
                 <p:commandButton value="Update"/>
                 <p:commandButton value="Delete"/>
                 <p:button value="Back" outcome="/pages/searchEmployee.xhtml"/>

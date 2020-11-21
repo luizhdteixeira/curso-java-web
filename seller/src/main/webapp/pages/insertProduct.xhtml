@@ -20,25 +20,26 @@
 <body>
 <ui:composition template="/templates/template.xhtml">
     <ui:define name="content">
-        <h:form>
+        <h:form id="frmInsProd">
             <p:toolbar>
                 <f:facet name="left">
                     <h:outputText value="Product"/>
                 </f:facet>
             </p:toolbar>
-            <h:panelGrid columns="2">
+            <h:panelGrid columns="2" id="pnInsProd">
                 <p:outputLabel value="Name: "/>
-                <p:inputText maxlength="50" size="30"/>
+                <p:inputText maxlength="50" size="30" value="#{productBean.product.name}}"/>
                 <p:outputLabel value="Value: "/>
-                <p:inputText maxlength="20" size="30"/>
+                <p:inputText maxlength="20" size="30" value="#{productBean.product.value}"/>
                 <p:outputLabel value="Quantity: "/>
-                <p:inputText maxlength="20" size="30"/>
+                <p:inputText maxlength="20" size="30" value="#{productBean.product.quantity}"/>
                 <p:outputLabel value="Provider: "/>
-                <p:inputText maxlength="20" size="30"/>
+                <p:inputText maxlength="20" size="30" value="#{productBean.product.provider}"/>
             </h:panelGrid>
             <h:panelGrid columns="5">
                 <p:commandButton value="New"/>
-                <p:commandButton value="Save"/>
+                <p:commandButton value="Save" actionListener="#{productBean.save()}"
+                                 update=":msgGlobal :frmInsProd:pnInsProd"/>
                 <p:commandButton value="Update"/>
                 <p:commandButton value="Delete"/>
                 <p:button value="Back" outcome="/pages/searchProduct.xhtml"/>

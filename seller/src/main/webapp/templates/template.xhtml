@@ -8,18 +8,17 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xml:lang="xhtml">
-
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>System Seller</title>
 </h:head>
 <h:body>
+<p:growl id="msgGlobal"/>
     <p:layout fullPage="true">
         <p:layoutUnit position="north" header="Seller"
                       resizable="false" closable="false" collapsible="false"/>
@@ -35,9 +34,9 @@
                         <p:menuitem value="Exit"/>
                     </p:submenu>
                     <p:submenu label="Registration">
-                        <p:menuitem value="Provider" outcome="/pages/insertProvider.xhtml"/>
-                        <p:menuitem value="Employee" outcome="/pages/insertEmployee.xhtml"/>
-                        <p:menuitem value="Product" outcome="/pages/insertProduct.xhtml"/>
+                        <p:menuitem value="Provider" outcome="/pages/searchProvider.xhtml"/>
+                        <p:menuitem value="Employee" outcome="/pages/searchEmployee.xhtml"/>
+                        <p:menuitem value="Product" outcome="/pages/searchProduct.xhtml"/>
                     </p:submenu>
                     <p:submenu label="Sellers">
                         <p:menuitem value="New Seller"/>
@@ -51,7 +50,5 @@
         <p:layoutUnit position="south" header="Development by Luiz Teixeira"
                       resizable="false" closable="false" collapsible="false"/>
     </p:layout>
-
 </h:body>
-
 </html>

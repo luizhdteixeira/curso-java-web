@@ -33,11 +33,12 @@ public class GenericDao<T> {
      * Persistence: Save entity
      *
      * */
-    public void save(T entity) {
+    public T save(T entity) {
         try {
             transaction();
             session().save(entity);
             transaction().commit();
+            return entity;
         } catch (RuntimeException e) {
            if (transaction() != null) {
                transaction().rollback();
@@ -52,7 +53,7 @@ public class GenericDao<T> {
      * @Param No Param
      * @Throw RuntimeException
      *
-     * Persistence: retrieve entity
+     * Persistence: retrieve of list entities
      *
      */
 
@@ -63,24 +64,41 @@ public class GenericDao<T> {
             listEntity = query.list();
             return listEntity;
         } catch (RuntimeException e) {
+            session().close();
             throw e;
         } finally {
             session().close();
         }
     }
 
+    /**
+     * @Param code
+     * @Throw RuntimeException
+     *
+     * Persistence: retrieve find by code
+     *
+     * */
+
     public T findByCode(Long code) {
         try {
             Criteria query = session().createCriteria(getEntityClass());
             query.add(Restrictions.idEq(code));
-            T entity = (T) query.uniqueResult();
-            return entity;
+            return (T) query.uniqueResult();
         } catch (RuntimeException e) {
+            session().close();
             throw e;
         } finally {
             session().close();
         }
     }
+
+    /**
+     * @Param entity
+     * @Throw RuntimeException
+     *
+     * Persistence: delete entity
+     *
+     * */
 
     public void delete(T entity) {
         try {
@@ -96,6 +114,14 @@ public class GenericDao<T> {
             session().close();
         }
     }
+
+    /**
+     * @Param entity
+     * @Throw RuntimeException
+     *
+     * Persistence: update entity
+     *
+     * */
 
     public void update(T entity) {
         try {
