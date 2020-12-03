@@ -21,6 +21,7 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
+    <!-- Theme -->
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>cruze</param-value>
